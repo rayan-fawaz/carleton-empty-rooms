@@ -1,0 +1,100 @@
+[
+ {
+  "id": 45177,
+  "title": {
+   "rendered": "Southam Hall 513"
+  },
+  "link": "https://carleton.ca/tls/space/southam-hall-513/",
+  "featured_media": 46591,
+  "acf": {
+   "cu_building": "SA",
+   "cu_space_room_number": "SA513",
+   "cu_space_room_capacity": "30",
+   "cu_space_room_orientation": ""
+  },
+  "cu_space_type": [
+   776
+  ],
+  "cu_space_accessibility": [
+   44,
+   46,
+   782,
+   790
+  ],
+  "cu_space_equipment": [
+   45,
+   52,
+   53,
+   61,
+   73,
+   803,
+   779,
+   68,
+   791,
+   70,
+   778,
+   844,
+   74,
+   780
+  ]
+ },
+ {
+  "id": 45173,
+  "title": {
+   "rendered": "Southam Hall 507"
+  },
+  "link": "https://carleton.ca/tls/space/southam-hall-507/",
+  "featured_media": 50080,
+  "acf": {
+   "cu_building": "SA",
+   "cu_space_room_number": "SA507",
+   "cu_space_room_capacity": "12",
+   "cu_space_room_orientation": ""
+  },
+  "cu_space_type": [
+   89
+  ],
+  "cu_space_accessibility": [
+   782
+  ],
+  "cu_space_equipment": [
+   45,
+   52,
+   61,
+   803,
+   779,
+   88,
+   778,
+   844,
+   780
+  ]
+ },
+ {
+  "id": 45077,
+  "title": {
+   "rendered": "Nicol Building 4042"
+  },
+  "link": "https://carleton.ca/tls/space/nicol-building-4042/",
+  "featured_media": 50901,
+  "acf": {
+   "cu_building": "NI",
+   "cu_space_room_number": "NI4042",
+   "cu_space_room_capacity": "6",
+   "cu_space_room_orientation": ""
+  },
+  "cu_space_type": [
+   89
+  ],
+  "cu_space_accessibility": [
+   782
+  ],
+  "cu_space_equipment": [
+   45,
+   61,
+   779,
+   88,
+   70,
+   781
+  ]
+ }
+]

@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --bg: #f6f5f1;
+  --surface: #ffffff;
+  --surface-2: #efeee8;
+  --ink: #17181c;
+  --muted: #696b74;
+  --line: #e4e2da;
+  --brand: #0e8a5d;
+  --brand-ink: #ffffff;
+  --free: #0e8a5d;
+  --free-soft: #e2f3eb;
+  --short: #a65a06;
+  --short-soft: #fbf0dc;
+  --busy: #cf3646;
+  --busy-soft: #fbe6e8;
+  --shadow: 0 1px 2px rgb(23 24 28 / 0.04), 0 4px 16px rgb(23 24 28 / 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --bg: #0f1012;
+    --surface: #17181b;
+    --surface-2: #212226;
+    --ink: #f2f2ef;
+    --muted: #9c9ea6;
+    --line: #2b2c31;
+    --brand: #33c48a;
+    --brand-ink: #06140e;
+    --free: #45d197;
+    --free-soft: rgb(69 209 151 / 0.13);
+    --short: #f2ac55;
+    --short-soft: rgb(242 172 85 / 0.13);
+    --busy: #f4707c;
+    --busy-soft: rgb(244 112 124 / 0.13);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
   }
 }
 
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-free: var(--free);
+  --color-free-soft: var(--free-soft);
+  --color-short: var(--short);
+  --color-short-soft: var(--short-soft);
+  --color-busy: var(--busy);
+  --color-busy-soft: var(--busy-soft);
+  --shadow-card: var(--shadow);
+  --font-sans: var(--font-jakarta);
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-feature-settings: "tnum" 0;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hide scrollbars on horizontal chip rows but keep them scrollable. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Booked time in schedules. */
+.booked {
+  background: repeating-linear-gradient(-45deg, var(--busy-soft) 0 5px, transparent 5px 10px), var(--busy-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--busy) 35%, transparent);
+}
+
+/* Dialogs: bottom sheet on phones, centred card on larger screens. */
+dialog.sheet {
+  margin: auto auto 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 92dvh;
+  border-radius: 1.25rem 1.25rem 0 0;
+  padding: 0;
+  background: var(--surface);
+  color: var(--ink);
+  border: 0;
+}
+@media (min-width: 640px) {
+  dialog.sheet {
+    margin: auto;
+    max-width: 34rem;
+    border-radius: 1.25rem;
+    max-height: 88dvh;
+  }
+}
+dialog.sheet::backdrop {
+  background: rgb(10 10 12 / 0.45);
+  backdrop-filter: blur(2px);
+}
+dialog.sheet[open] {
+  animation: sheet-in 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+@keyframes sheet-in {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+.fade-up {
+  animation: fade-up 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: calc(min(var(--i, 0), 12) * 25ms);
+}
+
+@keyframes live-dot {
+  50% {
+    opacity: 0.35;
+  }
+}
+.live-dot {
+  animation: live-dot 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up,
+  .live-dot,
+  dialog.sheet[open] {
+    animation: none;
+  }
 }
