@@ -109,7 +109,7 @@ function Row({
                 style={{ width: `${total ? (free / total) * 100 : 0}%` }}
               />
             </span>
-            <span className="text-xs text-muted">{countRooms(total)}</span>
+            <span className="text-xs whitespace-nowrap text-muted">{countRooms(total)}</span>
           </span>
         </span>
         <span className={`shrink-0 text-sm font-semibold tabular-nums ${free ? "text-free" : "text-muted"}`}>

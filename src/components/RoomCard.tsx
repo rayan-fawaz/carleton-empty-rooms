@@ -40,16 +40,18 @@ export function RoomCard({
           eager={index < EAGER_CARDS}
           className="aspect-[4/3] w-28 shrink-0 rounded-xl sm:aspect-[3/2] sm:w-full sm:rounded-none sm:rounded-t-2xl"
         />
-        <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 pr-10 sm:p-3.5 sm:pr-12">
-          <div className="min-w-0">
+        {/* The star sits beside the name on phones and beside the status on larger screens. */}
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 sm:p-3.5 sm:pr-12">
+          <div className="min-w-0 pr-10 sm:pr-0">
             <p className="truncate text-[17px] leading-tight font-bold tracking-tight">{room.name}</p>
             <p className="mt-0.5 flex items-center gap-1.5 truncate text-[13px] text-muted">
-              {showBuilding && <span className="truncate">{shortBuildingName(room.buildingName)}</span>}
+              {showBuilding && <span className="min-w-0 truncate">{shortBuildingName(room.buildingName)}</span>}
               {showBuilding && seats ? <span aria-hidden>·</span> : null}
               {seats ? (
-                <span className="inline-flex shrink-0 items-center gap-1">
+                <span className="inline-flex shrink-0 items-center gap-1" title={`${seats} seats`}>
                   <Users className="h-3.5 w-3.5" aria-hidden />
-                  {seats} seats
+                  {seats}
+                  <span className="sr-only min-[380px]:not-sr-only">seats</span>
                 </span>
               ) : null}
             </p>

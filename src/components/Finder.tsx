@@ -134,7 +134,7 @@ export function Finder({
   }
 
   const cards = (list: Placed[], offset = 0) => (
-    <ul className="grid gap-2.5 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
+    <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-4 xl:grid-cols-3">
       {list.map((p, i) => (
         <RoomCard
           key={p.room.id}
@@ -167,7 +167,7 @@ export function Finder({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
-            placeholder={buildingName ? `Search ${buildingName}…` : "Search a room or building, e.g. “SA 5” or “Loeb”"}
+            placeholder={buildingName ? `Search ${buildingName}…` : "Search rooms or buildings"}
             aria-label="Search rooms"
             className="w-full rounded-2xl bg-surface py-3.5 pr-11 pl-12 text-base shadow-card outline-none placeholder:text-muted focus-visible:ring-2 focus-visible:ring-brand [&::-webkit-search-cancel-button]:hidden"
           />
