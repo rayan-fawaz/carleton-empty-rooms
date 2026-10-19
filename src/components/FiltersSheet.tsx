@@ -1,7 +1,8 @@
 "use client";
 
 import { Check, X } from "lucide-react";
-import { FEATURES, type FeatureKey, toggle, type ViewState } from "@/lib/view";
+import { countRooms, FEATURES, type FeatureKey, toggle } from "@/lib/rooms";
+import type { ViewState } from "@/lib/state";
 
 export function FiltersSheet({
   state,
@@ -18,14 +19,21 @@ export function FiltersSheet({
     <div className="flex max-h-[inherit] flex-col">
       <div className="flex items-center justify-between border-b border-line px-5 py-4">
         <h2 className="text-lg font-bold">Filters</h2>
-        <button type="button" onClick={onClose} aria-label="Close" className="grid h-9 w-9 place-items-center rounded-full hover:bg-surface-2">
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Close"
+          className="grid h-9 w-9 place-items-center rounded-full hover:bg-surface-2"
+        >
           <X className="h-5 w-5" />
         </button>
       </div>
 
       <div className="overflow-y-auto px-5 py-4">
         <h3 className="text-[13px] font-semibold tracking-wide text-muted uppercase">Room has</h3>
-        <p className="mt-0.5 text-xs text-muted">Based on Carleton TLS room details. Rooms without details are hidden when these are on.</p>
+        <p className="mt-0.5 text-xs text-muted">
+          Based on Carleton TLS room details. Rooms without details are hidden when these are on.
+        </p>
         <ul className="mt-3 space-y-2">
           {(Object.keys(FEATURES) as FeatureKey[]).map((f) => (
             <li key={f}>
@@ -61,7 +69,7 @@ export function FiltersSheet({
           onClick={onClose}
           className="flex-1 rounded-xl bg-ink px-4 py-3 text-sm font-semibold text-bg transition hover:opacity-90"
         >
-          Show {resultCount} {resultCount === 1 ? "room" : "rooms"}
+          Show {countRooms(resultCount)}
         </button>
       </div>
     </div>

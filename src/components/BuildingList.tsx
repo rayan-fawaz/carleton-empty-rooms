@@ -2,9 +2,8 @@
 
 import { ChevronRight, MapPin } from "lucide-react";
 import { useState } from "react";
-import type { BuildingSummary } from "@/lib/view";
-
-export const ALL = "ALL";
+import { type BuildingSummary, countRooms, shortBuildingName } from "@/lib/rooms";
+import { ALL_BUILDINGS } from "@/lib/state";
 
 /** The building directory: the main way into the app. */
 export function BuildingList({
@@ -27,7 +26,11 @@ export function BuildingList({
     <nav aria-label="Buildings">
       <div className="mb-2 flex items-center justify-between gap-2 px-1">
         <h2 className="text-[13px] font-semibold tracking-wide text-muted uppercase">Buildings</h2>
-        <div className="flex rounded-full bg-surface-2 p-0.5 text-xs font-medium" role="group" aria-label="Sort buildings">
+        <div
+          className="flex rounded-full bg-surface-2 p-0.5 text-xs font-medium"
+          role="group"
+          aria-label="Sort buildings"
+        >
           {(["free", "az"] as const).map((o) => (
             <button
               key={o}
@@ -44,8 +47,8 @@ export function BuildingList({
 
       <ul className="overflow-hidden rounded-2xl bg-surface shadow-card">
         <Row
-          active={selected === ALL}
-          onClick={() => onSelect(ALL)}
+          active={selected === ALL_BUILDINGS}
+          onClick={() => onSelect(ALL_BUILDINGS)}
           badge={<MapPin className="h-4 w-4" aria-hidden />}
           name="All buildings"
           free={totalFree}
@@ -98,15 +101,18 @@ function Row({
           {badge}
         </span>
         <span className="min-w-0 flex-1">
-          <span className="block truncate text-[15px] font-semibold">{name.replace(/\s*\(formerly (.*)\)/, " · $1")}</span>
+          <span className="block truncate text-[15px] font-semibold">{shortBuildingName(name)}</span>
           <span className="mt-1 flex items-center gap-2">
             <span className="h-1 w-16 overflow-hidden rounded-full bg-surface-2" aria-hidden>
-              <span className="block h-full rounded-full bg-free" style={{ width: `${total ? (free / total) * 100 : 0}%` }} />
+              <span
+                className="block h-full rounded-full bg-free"
+                style={{ width: `${total ? (free / total) * 100 : 0}%` }}
+              />
             </span>
-            <span className="text-xs text-muted">{total} rooms</span>
+            <span className="text-xs text-muted">{countRooms(total)}</span>
           </span>
         </span>
-        <span className={`tabular shrink-0 text-sm font-semibold ${free ? "text-free" : "text-muted"}`}>
+        <span className={`shrink-0 text-sm font-semibold tabular-nums ${free ? "text-free" : "text-muted"}`}>
           {free ? `${free} free` : "None free"}
         </span>
         <ChevronRight className="h-4 w-4 shrink-0 text-muted" aria-hidden />

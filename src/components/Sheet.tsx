@@ -2,25 +2,28 @@
 
 import { useEffect, useRef } from "react";
 
-/** Native <dialog> as a bottom sheet (phone) / centred card (desktop). Esc and backdrop close it. */
+/**
+ * A native <dialog>: a bottom sheet on phones and a centred card on larger screens.
+ * `open` drives it; Esc and backdrop clicks ask the owner to close via `onClose`.
+ */
 export function Sheet({
   open,
-  onClose,
   label,
+  onClose,
   children,
 }: {
   open: boolean;
-  onClose: () => void;
   label: string;
+  onClose: () => void;
   children: React.ReactNode;
 }) {
   const ref = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    const d = ref.current;
-    if (!d) return;
-    if (open && !d.open) d.showModal();
-    if (!open && d.open) d.close();
+    const dialog = ref.current;
+    if (!dialog) return;
+    if (open && !dialog.open) dialog.showModal();
+    if (!open && dialog.open) dialog.close();
   }, [open]);
 
   return (
@@ -28,7 +31,6 @@ export function Sheet({
       ref={ref}
       aria-label={label}
       className="sheet"
-      onClose={onClose}
       onCancel={(e) => {
         e.preventDefault();
         onClose();

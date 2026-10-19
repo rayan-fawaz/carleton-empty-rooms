@@ -5,36 +5,36 @@ import { useEffect, useState } from "react";
 import { ottawaNow } from "@/lib/time";
 import type { Minute } from "@/lib/types";
 
+const TICK_MS = 30_000;
+const REFRESH_MS = 10 * 60_000;
+
 /**
- * The current Ottawa minute, ticking every 30s. Starts from the server's value so the first
- * render matches the HTML. While live, booking data is also refreshed every 10 minutes.
+ * The current Ottawa minute, ticking every 30 seconds. It starts from the server's value so the
+ * first render matches the HTML. Bookings are re-fetched every 10 minutes while the tab is visible,
+ * and straight away once the date rolls over, so a tab left open overnight never shows yesterday.
  */
-export function useNowMinute(initial: Minute, live: boolean): Minute {
-  const [minute, setMinute] = useState(initial);
+export function useNowMinute(serverMinute: Minute, today: string): Minute {
   const router = useRouter();
+  const [minute, setMinute] = useState(serverMinute);
 
   useEffect(() => {
-    const tick = () => setMinute(ottawaNow().minute);
-    tick();
-    const id = setInterval(tick, 30_000);
-    return () => clearInterval(id);
-  }, []);
-
-  useEffect(() => {
-    if (!live) return;
-    let last = Date.now();
-    const refresh = () => {
-      if (document.visibilityState !== "visible" || Date.now() - last < 10 * 60_000) return;
-      last = Date.now();
-      router.refresh();
+    let lastRefresh = Date.now();
+    const tick = () => {
+      const now = ottawaNow();
+      setMinute(now.minute);
+      const stale = Date.now() - lastRefresh > REFRESH_MS && document.visibilityState === "visible";
+      if (now.date !== today || stale) {
+        lastRefresh = Date.now();
+        router.refresh();
+      }
     };
-    const id = setInterval(refresh, 60_000);
-    document.addEventListener("visibilitychange", refresh);
+    const id = setInterval(tick, TICK_MS);
+    document.addEventListener("visibilitychange", tick);
     return () => {
       clearInterval(id);
-      document.removeEventListener("visibilitychange", refresh);
+      document.removeEventListener("visibilitychange", tick);
     };
-  }, [live, router]);
+  }, [router, today]);
 
   return minute;
 }

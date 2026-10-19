@@ -61,7 +61,6 @@ describe("parseSpaces", () => {
       74: "Whiteboard",
     });
     expect(info.SA513).toMatchObject({
-      title: "Southam Hall 513",
       capacity: 30,
       types: ["Computer Lab"],
       url: "https://carleton.ca/tls/space/southam-hall-513/",

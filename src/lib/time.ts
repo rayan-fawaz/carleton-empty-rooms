@@ -24,12 +24,13 @@ export function dateStamp(date: string): number {
   return Date.UTC(y, m - 1, d) / 1000;
 }
 
-export function isValidDate(date: string | undefined): date is string {
-  return !!date && /^\d{4}-\d{2}-\d{2}$/.test(date) && !Number.isNaN(dateStamp(date));
-}
-
 export function addDays(date: string, days: number): string {
   return new Date((dateStamp(date) + days * 86400) * 1000).toISOString().slice(0, 10);
+}
+
+/** A real calendar date in "YYYY-MM-DD" form (rejects things like 2026-02-31). */
+export function isValidDate(date: string | undefined): date is string {
+  return !!date && /^\d{4}-\d{2}-\d{2}$/.test(date) && addDays(date, 0) === date;
 }
 
 /** "HH:MM" → minutes, or null if malformed. */
@@ -62,6 +63,12 @@ export function formatDuration(minutes: number): string {
   return m ? `${h}h ${m}m` : `${h}h`;
 }
 
+/** Wall-clock time in Ottawa for a timestamp, e.g. "6:42 PM". */
+export function formatClock(ms: number): string {
+  const { minute } = ottawaNow(new Date(ms));
+  return formatTime(minute);
+}
+
 export function formatDate(date: string): string {
   return new Date(dateStamp(date) * 1000).toLocaleDateString("en-CA", {
     timeZone: "UTC",
@@ -69,4 +76,11 @@ export function formatDate(date: string): string {
     month: "short",
     day: "numeric",
   });
+}
+
+/** "Today", "Tomorrow", or a short date like "Wed, Oct 21". */
+export function dayLabel(date: string, today: string): string {
+  if (date === today) return "Today";
+  if (date === addDays(today, 1)) return "Tomorrow";
+  return formatDate(date);
 }

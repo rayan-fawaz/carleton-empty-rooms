@@ -16,7 +16,9 @@ export default function Page({ searchParams }: PageProps<"/">) {
             <span className="block text-[13px] text-muted">Free classrooms at Carleton, right now</span>
           </span>
         </Link>
-        <span className="hidden rounded-full border border-line px-3 py-1 text-xs text-muted sm:inline">Unofficial student tool</span>
+        <span className="hidden rounded-full border border-line px-3 py-1 text-xs text-muted sm:inline">
+          Unofficial student tool
+        </span>
       </header>
 
       <Suspense fallback={<Loading />}>
@@ -33,29 +35,32 @@ export default function Page({ searchParams }: PageProps<"/">) {
           <a className="underline hover:text-ink" href="https://carleton.ca/tls/rooms/">
             Carleton TLS
           </a>
-          . &ldquo;Free&rdquo; means nothing is booked; rooms can still be locked or used informally. Not affiliated with
-          Carleton University.
+          . &ldquo;Free&rdquo; means nothing is booked; rooms can still be locked or used informally. Not affiliated
+          with Carleton University.
         </p>
       </footer>
     </div>
   );
 }
 
+const CHIP_WIDTHS = [88, 70, 90, 96, 80];
+const ROW_WIDTHS = [150, 190, 130, 170, 210, 140, 180, 160];
+
 function Loading() {
   return (
     <div aria-busy="true" aria-label="Loading rooms">
       <div className="h-[52px] animate-pulse rounded-2xl bg-surface shadow-card" />
       <div className="mt-3 flex gap-2">
-        {[88, 70, 90, 96, 80].map((w, i) => (
-          <div key={i} className="h-9 animate-pulse rounded-full bg-surface shadow-card" style={{ width: w }} />
+        {CHIP_WIDTHS.map((width, i) => (
+          <div key={i} className="h-9 animate-pulse rounded-full bg-surface shadow-card" style={{ width }} />
         ))}
       </div>
       <div className="mt-3 h-10 animate-pulse rounded-full bg-surface shadow-card" />
       <div className="mt-6 space-y-px overflow-hidden rounded-2xl bg-line shadow-card">
-        {Array.from({ length: 8 }, (_, i) => (
+        {ROW_WIDTHS.map((width, i) => (
           <div key={i} className="flex items-center gap-3 bg-surface px-3.5 py-3">
             <div className="h-9 w-9 animate-pulse rounded-xl bg-surface-2" />
-            <div className="h-4 flex-1 animate-pulse rounded bg-surface-2" style={{ maxWidth: 140 + ((i * 37) % 90) }} />
+            <div className="h-4 animate-pulse rounded bg-surface-2" style={{ width }} />
           </div>
         ))}
       </div>

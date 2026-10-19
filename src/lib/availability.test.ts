@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { DAY_END, daySegments, statusAt } from "./availability";
-import { dateStamp, formatDuration, formatTime, ottawaNow } from "./time";
+import { addDays, dateStamp, formatClock, formatDuration, formatTime, isValidDate, ottawaNow } from "./time";
 
 const b = (start: number, end: number, title = "Occupied") => ({ start, end, title });
 
 describe("statusAt", () => {
   it("is free until the end of the day when nothing is booked", () => {
-    expect(statusAt([], 600)).toEqual({ free: true, until: DAY_END, minutesLeft: DAY_END - 600, nextTitle: null });
+    expect(statusAt([], 600)).toEqual({ free: true, until: DAY_END, minutesLeft: DAY_END - 600, restOfDay: true });
   });
 
   it("is free until the next booking starts", () => {
@@ -14,7 +14,7 @@ describe("statusAt", () => {
       free: true,
       until: 780,
       minutesLeft: 180,
-      nextTitle: "COMP 1405",
+      restOfDay: false,
     });
   });
 
@@ -25,7 +25,7 @@ describe("statusAt", () => {
 
   it("is busy until the end of back-to-back or overlapping bookings", () => {
     const list = [b(600, 690, "First"), b(690, 780), b(750, 840), b(900, 960)];
-    expect(statusAt(list, 620)).toEqual({ free: false, until: 840, title: "First" });
+    expect(statusAt(list, 620)).toEqual({ free: false, until: 840 });
   });
 
   it("ignores unsorted input", () => {
@@ -43,6 +43,22 @@ describe("time helpers", () => {
     expect(ottawaNow(new Date("2026-10-19T22:15:00Z"))).toEqual({ date: "2026-10-19", minute: 18 * 60 + 15 });
     // 03:30 UTC on the 20th is still the 19th in Ottawa
     expect(ottawaNow(new Date("2026-10-20T03:30:00Z")).date).toBe("2026-10-19");
+  });
+
+  it("validates real calendar dates", () => {
+    expect(isValidDate("2026-10-19")).toBe(true);
+    expect(isValidDate("2026-02-31")).toBe(false);
+    expect(isValidDate("2026-1-5")).toBe(false);
+    expect(isValidDate(undefined)).toBe(false);
+  });
+
+  it("adds days across month and year boundaries", () => {
+    expect(addDays("2026-10-31", 1)).toBe("2026-11-01");
+    expect(addDays("2026-12-31", 1)).toBe("2027-01-01");
+  });
+
+  it("formats a timestamp as Ottawa clock time", () => {
+    expect(formatClock(Date.parse("2026-10-19T22:42:00Z"))).toBe("6:42 PM");
   });
 
   it("formats minutes for humans", () => {
@@ -73,6 +89,14 @@ describe("daySegments", () => {
       { start: 500, end: 520, free: true },
       { start: 520, end: 620, free: false, title: "X" },
       { start: 620, end: 700, free: true },
+    ]);
+  });
+
+  it("ignores bookings that start at or after the window ends", () => {
+    expect(daySegments([b(540, 600, "A"), b(960, 1000, "Edge"), b(1410, 1440, "Late")], 480, 960)).toEqual([
+      { start: 480, end: 540, free: true },
+      { start: 540, end: 600, free: false, title: "A" },
+      { start: 600, end: 960, free: true },
     ]);
   });
 

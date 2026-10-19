@@ -65,11 +65,6 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-jakarta), system-ui, sans-serif;
-  font-feature-settings: "tnum" 0;
-}
-
-.tabular {
-  font-variant-numeric: tabular-nums;
 }
 
 /* Hide scrollbars on horizontal chip rows but keep them scrollable. */

@@ -1,20 +1,24 @@
+import { SCHEDULE_END, SCHEDULE_START } from "@/lib/availability";
+import { bookingLabel, byName, type Placed } from "@/lib/rooms";
 import { formatHour, formatTime } from "@/lib/time";
 import type { Minute } from "@/lib/types";
-import type { Placed } from "@/lib/view";
+import { statusTone, toneBar } from "./Status";
 
-const FROM = 8 * 60;
-const TO = 22 * 60;
-const HOURS = Array.from({ length: (TO - FROM) / 60 + 1 }, (_, i) => FROM / 60 + i);
-const pct = (m: Minute) => `${((Math.min(Math.max(m, FROM), TO) - FROM) / (TO - FROM)) * 100}%`;
+const HOURS = Array.from({ length: (SCHEDULE_END - SCHEDULE_START) / 60 + 1 }, (_, i) => SCHEDULE_START / 60 + i);
+
+/** Horizontal position of a minute within the schedule, as a CSS percentage. */
+const at = (m: Minute) =>
+  `${((Math.min(Math.max(m, SCHEDULE_START), SCHEDULE_END) - SCHEDULE_START) / (SCHEDULE_END - SCHEDULE_START)) * 100}%`;
+const span = (from: Minute, to: Minute) => ({ left: at(from), width: `calc(${at(to)} - ${at(from)})` });
 
 /** A building's whole day at a glance: one row per room, booked time shaded. */
 export function Schedule({ list, minute, onOpen }: { list: Placed[]; minute: Minute; onOpen: (id: string) => void }) {
-  const rows = [...list].sort((a, b) => a.room.name.localeCompare(b.room.name, "en", { numeric: true }));
-  const showNow = minute >= FROM && minute <= TO;
+  const rows = [...list].sort(byName);
+  const showNow = minute >= SCHEDULE_START && minute <= SCHEDULE_END;
 
   return (
     <div className="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
-      <div className="min-w-[680px] rounded-2xl bg-surface p-3 shadow-card">
+      <div className="min-w-[720px] rounded-2xl bg-surface p-3 shadow-card">
         <div className="mb-3 flex items-center gap-4 px-1 text-xs text-muted">
           <span className="flex items-center gap-1.5">
             <span className="booked h-3 w-5 rounded" aria-hidden /> Booked
@@ -28,7 +32,7 @@ export function Schedule({ list, minute, onOpen }: { list: Placed[]; minute: Min
           <div />
           <div className="relative h-5 text-[11px] text-muted">
             {HOURS.map((h) => (
-              <span key={h} className="tabular absolute -translate-x-1/2" style={{ left: pct(h * 60) }}>
+              <span key={h} className="absolute -translate-x-1/2 tabular-nums" style={{ left: at(h * 60) }}>
                 {formatHour(h)}
               </span>
             ))}
@@ -44,24 +48,35 @@ export function Schedule({ list, minute, onOpen }: { list: Placed[]; minute: Min
                 className="grid w-full grid-cols-[5.5rem_1fr] items-center rounded-lg text-left hover:bg-surface-2"
               >
                 <span className="flex items-center gap-2 px-1 py-2 text-sm font-semibold">
-                  <span className={`h-2 w-2 rounded-full ${p.usable ? "bg-free" : p.status.free ? "bg-short" : "bg-busy"}`} aria-hidden />
+                  <span className={`h-2 w-2 rounded-full ${toneBar[statusTone(p)]}`} aria-hidden />
                   {p.room.name}
                 </span>
                 <span className="relative h-7">
                   {HOURS.map((h) => (
-                    <span key={h} className="absolute inset-y-0 w-px bg-line" style={{ left: pct(h * 60) }} aria-hidden />
+                    <span
+                      key={h}
+                      className="absolute inset-y-0 w-px bg-line"
+                      style={{ left: at(h * 60) }}
+                      aria-hidden
+                    />
                   ))}
                   {p.room.bookings
-                    .filter((b) => b.end > FROM && b.start < TO)
-                    .map((b) => (
+                    .filter((b) => b.end > SCHEDULE_START && b.start < SCHEDULE_END)
+                    .map((b, i) => (
                       <span
-                        key={`${b.start}-${b.title}`}
-                        title={`${formatTime(b.start)}–${formatTime(b.end)} · ${b.title === "Occupied" ? "Class or booking" : b.title}`}
+                        key={i}
+                        title={`${formatTime(b.start)}–${formatTime(b.end)} · ${bookingLabel(b.title)}`}
                         className="booked absolute inset-y-1 rounded-md"
-                        style={{ left: pct(b.start), width: `calc(${pct(b.end)} - ${pct(b.start)})` }}
+                        style={span(b.start, b.end)}
                       />
                     ))}
-                  {showNow && <span className="absolute -inset-y-0.5 w-0.5 rounded bg-brand" style={{ left: pct(minute) }} aria-hidden />}
+                  {showNow && (
+                    <span
+                      className="absolute -inset-y-0.5 w-0.5 rounded bg-brand"
+                      style={{ left: at(minute) }}
+                      aria-hidden
+                    />
+                  )}
                 </span>
               </button>
             </li>

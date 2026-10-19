@@ -1,43 +1,23 @@
 import { CloudOff } from "lucide-react";
 import { connection } from "next/server";
-import { getBookings, getRoomInfo, getRooms } from "@/lib/data";
-import { isValidDate, ottawaNow } from "@/lib/time";
-import type { RoomInfo } from "@/lib/types";
-import { type FinderRoom, infoFor } from "@/lib/view";
+import { getDay } from "@/lib/data";
+import { readViewState } from "@/lib/state";
+import { ottawaNow } from "@/lib/time";
 import { Finder } from "./Finder";
 
-/** Fetches one day of bookings on the server and hands everything to the client-side finder. */
+/** Loads the selected day on the server and hands it to the interactive finder. */
 export async function Results({ searchParams }: { searchParams: PageProps<"/">["searchParams"] }) {
   const params = await searchParams;
   await connection();
   const now = ottawaNow();
-  const requested = Array.isArray(params.date) ? params.date[0] : params.date;
-  const date = isValidDate(requested) ? requested : now.date;
+  const { date } = readViewState(params, now.date);
 
-  let data;
-  try {
-    const [{ rooms, buildings }, { bookings, fetchedAt }, info] = await Promise.all([
-      getRooms(),
-      getBookings(date),
-      getRoomInfo().catch((err): Record<string, RoomInfo> => {
-        console.error("TLS room details unavailable", err);
-        return {};
-      }),
-    ]);
-    data = { rooms, buildings, bookings, fetchedAt, info };
-  } catch (err) {
+  const day = await getDay(date).catch((err) => {
     console.error("Booking data unavailable", err);
-    return <Unavailable />;
-  }
-
-  const rooms: FinderRoom[] = data.rooms.map((r) => ({
-    ...r,
-    buildingName: data.buildings[r.building] ?? r.building,
-    bookings: data.bookings[r.id] ?? [],
-    info: infoFor(data.info, r.name),
-  }));
-
-  return <Finder rooms={rooms} today={now.date} serverMinute={now.minute} fetchedAt={data.fetchedAt} />;
+    return null;
+  });
+  if (!day) return <Unavailable />;
+  return <Finder rooms={day.rooms} today={now.date} serverMinute={now.minute} fetchedAt={day.fetchedAt} />;
 }
 
 function Unavailable() {
@@ -48,8 +28,8 @@ function Unavailable() {
       </span>
       <h2 className="mt-4 text-xl font-bold">Can&apos;t reach Carleton&apos;s booking system</h2>
       <p className="mt-2 text-sm text-muted">
-        We get room schedules from booking.carleton.ca, and it isn&apos;t responding right now. This usually clears up in a
-        few minutes.
+        Room schedules come from booking.carleton.ca, and it isn&apos;t responding right now. This usually clears up in
+        a few minutes.
       </p>
       <a href="" className="mt-5 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-bg">
         Try again
