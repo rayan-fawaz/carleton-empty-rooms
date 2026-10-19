@@ -92,6 +92,12 @@ dialog.sheet {
   background: var(--surface);
   color: var(--ink);
   border: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+/* The page behind an open sheet shouldn't scroll. */
+html:has(dialog.sheet[open]) {
+  overflow: hidden;
 }
 @media (min-width: 640px) {
   dialog.sheet {

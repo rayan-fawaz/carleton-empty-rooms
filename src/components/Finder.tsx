@@ -19,7 +19,7 @@ import { ALL_BUILDINGS, describeWhen, queryFor, readViewState, resolveMinute, ty
 import { dayLabel, formatClock, formatDuration } from "@/lib/time";
 import type { DayRoom, Minute } from "@/lib/types";
 import { BuildingList } from "./BuildingList";
-import { EmptyState } from "./EmptyState";
+import { EmptyState, type EmptyReason } from "./EmptyState";
 import { FiltersSheet } from "./FiltersSheet";
 import { RoomCard } from "./RoomCard";
 import { RoomSheet } from "./RoomSheet";
@@ -75,6 +75,15 @@ export function Finder({
   const scoped = building ? placed.filter((p) => p.room.building === building) : placed;
   const searched = sortPlaced(query ? scoped.filter((p) => matchesSearch(p.room, query)) : scoped);
   const usable = searched.filter((p) => p.usable);
+  const emptyReason: EmptyReason = query
+    ? "search"
+    : building && !rooms.some((r) => r.building === building)
+      ? "unknown-building"
+      : scoped.length === 0
+        ? "filtered"
+        : state.need
+          ? "duration"
+          : "booked";
   const others = searched.filter((p) => !p.usable);
   const saved = sortPlaced(
     place(
@@ -178,7 +187,9 @@ export function Finder({
       </div>
 
       <div className="mt-6 lg:grid lg:grid-cols-[19rem_1fr] lg:items-start lg:gap-8">
-        <aside className={`${home ? "" : "hidden"} lg:sticky lg:top-4 lg:block`}>
+        <aside
+          className={`${home ? "" : "hidden"} lg:sticky lg:top-4 lg:-m-2 lg:block lg:max-h-[calc(100dvh-2rem)] lg:overflow-y-auto lg:p-2`}
+        >
           {saved.length > 0 && (
             <section className="mb-6 lg:hidden">
               <SavedRooms saved={saved} onOpen={openDetails} />
@@ -215,7 +226,7 @@ export function Finder({
                 <b className="text-free">{usable.length}</b> of {countRooms(searched.length)} free {moment}
               </p>
             </div>
-            {building && !query && (
+            {building && !query && scoped.length > 0 && (
               <div
                 className="flex shrink-0 rounded-full bg-surface p-1 text-sm font-semibold shadow-card"
                 role="group"
@@ -250,8 +261,13 @@ export function Finder({
                 cards(usable)
               ) : (
                 <EmptyState
-                  reason={query ? "search" : state.need ? "duration" : "none"}
-                  onReset={() => (query ? setQuery("") : update({ need: 0 }))}
+                  reason={emptyReason}
+                  onAction={() => {
+                    if (emptyReason === "search") setQuery("");
+                    else if (emptyReason === "duration") update({ need: 0 });
+                    else if (emptyReason === "filtered") update({ features: [], all: true });
+                    else backToBuildings();
+                  }}
                 />
               )}
               {others.length > 0 && (

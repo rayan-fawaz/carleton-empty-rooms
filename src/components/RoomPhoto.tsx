@@ -1,9 +1,12 @@
+"use client";
+
 import { DoorOpen } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
 import { shortBuildingName } from "@/lib/rooms";
 import type { DayRoom } from "@/lib/types";
 
-/** TLS photo of the room, or a quiet placeholder when Carleton hasn't published one. */
+/** TLS photo of the room, or a quiet placeholder when there isn't one or it fails to load. */
 export function RoomPhoto({
   room,
   size,
@@ -17,7 +20,8 @@ export function RoomPhoto({
   eager?: boolean;
 }) {
   const src = room.info?.image?.[size];
-  if (!src) {
+  const [failedSrc, setFailedSrc] = useState<string | null>(null);
+  if (!src || failedSrc === src) {
     return (
       <div className={`flex flex-col items-center justify-center gap-1 bg-surface-2 text-muted ${className}`}>
         <DoorOpen className={size === "large" ? "h-10 w-10" : "h-6 w-6"} strokeWidth={1.5} aria-hidden />
@@ -33,6 +37,7 @@ export function RoomPhoto({
         fill
         unoptimized
         loading={eager ? "eager" : "lazy"}
+        onError={() => setFailedSrc(src)}
         sizes={size === "thumb" ? "(min-width: 640px) 300px, 112px" : "(min-width: 640px) 544px, 100vw"}
         className="object-cover"
       />

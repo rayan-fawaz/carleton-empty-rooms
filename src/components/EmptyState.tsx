@@ -1,6 +1,8 @@
 import { SearchX } from "lucide-react";
 
-const COPY = {
+export type EmptyReason = "search" | "duration" | "booked" | "filtered" | "unknown-building";
+
+const COPY: Record<EmptyReason, { title: string; hint: string; action: string | null }> = {
   search: {
     title: "No rooms match that search",
     hint: "Try a building name or a room number like “TB 2”.",
@@ -11,14 +13,24 @@ const COPY = {
     hint: "Try a shorter time, another building, or a different time of day.",
     action: "Show any free room",
   },
-  none: {
+  booked: {
     title: "Every room here is booked",
     hint: "Try another building or a different time of day.",
     action: null,
   },
-} as const;
+  filtered: {
+    title: "No rooms here match your filters",
+    hint: "This building has rooms, but your filters hide all of them.",
+    action: "Show all rooms here",
+  },
+  "unknown-building": {
+    title: "We couldn't find that building",
+    hint: "The link may be out of date.",
+    action: "See all buildings",
+  },
+};
 
-export function EmptyState({ reason, onReset }: { reason: keyof typeof COPY; onReset: () => void }) {
+export function EmptyState({ reason, onAction }: { reason: EmptyReason; onAction: () => void }) {
   const { title, hint, action } = COPY[reason];
   return (
     <div className="flex flex-col items-center rounded-2xl border border-dashed border-line px-6 py-12 text-center">
@@ -28,7 +40,7 @@ export function EmptyState({ reason, onReset }: { reason: keyof typeof COPY; onR
       {action && (
         <button
           type="button"
-          onClick={onReset}
+          onClick={onAction}
           className="mt-4 rounded-full bg-ink px-4 py-2 text-sm font-semibold text-bg"
         >
           {action}

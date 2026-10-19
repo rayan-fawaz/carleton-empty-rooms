@@ -49,9 +49,9 @@ export function RoomSheet({
   }
 
   return (
-    <div className="flex max-h-[inherit] flex-col">
-      <div className="relative shrink-0">
-        <RoomPhoto room={room} size="large" eager className="aspect-[16/10] w-full sm:aspect-[4/3]" />
+    <div>
+      {/* Zero-height sticky layer: the close button stays in reach while the photo scrolls away. */}
+      <div className="sticky top-0 z-10 h-0">
         <button
           type="button"
           onClick={onClose}
@@ -61,13 +61,16 @@ export function RoomSheet({
         >
           <X className="h-5 w-5" />
         </button>
+      </div>
+      <div className="relative">
+        <RoomPhoto room={room} size="large" eager className="aspect-[16/10] w-full sm:aspect-[4/3]" />
         <div
           className="absolute top-2 left-1/2 h-1 w-10 -translate-x-1/2 rounded-full bg-white/70 sm:hidden"
           aria-hidden
         />
       </div>
 
-      <div className="overflow-y-auto overscroll-contain px-5 pt-4 pb-6">
+      <div className="px-5 pt-4 pb-6">
         <h2 className="text-2xl font-bold tracking-tight">{room.name}</h2>
         <p className="mt-0.5 flex flex-wrap items-center gap-x-2 text-sm text-muted">
           <span>{shortBuildingName(room.buildingName)}</span>
