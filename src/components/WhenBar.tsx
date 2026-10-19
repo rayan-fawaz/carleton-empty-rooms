@@ -10,7 +10,7 @@ import type { Minute } from "@/lib/types";
 const TIME_SLOTS = Array.from({ length: (SCHEDULE_END - SCHEDULE_START) / 30 }, (_, i) => SCHEDULE_START + i * 30);
 
 const chip = (active: boolean) =>
-  `inline-flex shrink-0 items-center gap-1.5 rounded-full px-3.5 py-2 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
+  `inline-flex h-10 shrink-0 items-center gap-1.5 rounded-full px-3.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand ${
     active ? "bg-ink text-bg" : "bg-surface text-ink shadow-card hover:bg-surface-2"
   }`;
 
@@ -69,7 +69,7 @@ export function WhenBar({
             aria-label="Day"
             value={state.date}
             onChange={(e) => pickDay(e.target.value)}
-            className="absolute inset-0 cursor-pointer opacity-0"
+            className="absolute inset-0 cursor-pointer text-base opacity-0"
           >
             {bookableDays(today).map((d) => (
               <option key={d} value={d}>
@@ -108,7 +108,7 @@ export function WhenBar({
               const minute = parseTime(e.target.value);
               if (minute !== null) onChange({ when: { kind: "at", minute } });
             }}
-            className="absolute inset-0 cursor-pointer opacity-0"
+            className="absolute inset-0 cursor-pointer text-base opacity-0"
           >
             <option value="" disabled>
               Pick a time
@@ -137,7 +137,7 @@ export function WhenBar({
               type="button"
               aria-pressed={state.need === n}
               onClick={() => onChange({ need: n })}
-              className={`flex-1 rounded-full px-2 py-1.5 text-sm font-semibold whitespace-nowrap transition sm:w-16 sm:flex-none ${
+              className={`h-9 flex-1 rounded-full px-2 text-sm font-semibold whitespace-nowrap transition sm:w-16 sm:flex-none ${
                 state.need === n ? "bg-brand text-brand-ink" : "text-ink hover:bg-surface-2"
               }`}
             >
@@ -148,7 +148,7 @@ export function WhenBar({
         <button
           type="button"
           onClick={onOpenFilters}
-          className={`${chip(filterCount > 0)} py-2.5`}
+          className={chip(filterCount > 0)}
           aria-label={filterCount ? `Filters, ${filterCount} on` : "Filters"}
         >
           <SlidersHorizontal className="h-4 w-4" aria-hidden />

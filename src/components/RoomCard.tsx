@@ -40,7 +40,7 @@ export function RoomCard({
           eager={index < EAGER_CARDS}
           className="aspect-[4/3] w-28 shrink-0 rounded-xl sm:aspect-[3/2] sm:w-full sm:rounded-none sm:rounded-t-2xl"
         />
-        <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 pr-8 sm:p-3.5 sm:pr-12">
+        <div className="flex min-w-0 flex-1 flex-col justify-center gap-1.5 pr-10 sm:p-3.5 sm:pr-12">
           <div className="min-w-0">
             <p className="truncate text-[17px] leading-tight font-bold tracking-tight">{room.name}</p>
             <p className="mt-0.5 flex items-center gap-1.5 truncate text-[13px] text-muted">
@@ -62,7 +62,7 @@ export function RoomCard({
         onClick={onStar}
         aria-pressed={starred}
         aria-label={starred ? `Remove ${room.name} from saved rooms` : `Save ${room.name}`}
-        className="absolute top-2 right-2 grid h-9 w-9 place-items-center rounded-full text-muted transition hover:bg-surface-2 hover:text-ink sm:top-auto sm:right-2.5 sm:bottom-2.5"
+        className="absolute top-1 right-1 grid h-11 w-11 place-items-center rounded-full text-muted transition hover:bg-surface-2 hover:text-ink sm:top-auto sm:right-1.5 sm:bottom-1.5"
       >
         <Star className={`h-[18px] w-[18px] ${starred ? "fill-amber-400 text-amber-500" : ""}`} />
       </button>

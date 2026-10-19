@@ -159,8 +159,14 @@ export function Finder({
           />
           <input
             type="search"
+            enterKeyHint="search"
+            autoComplete="off"
+            autoCorrect="off"
+            autoCapitalize="none"
+            spellCheck={false}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && e.currentTarget.blur()}
             placeholder={buildingName ? `Search ${buildingName}…` : "Search a room or building, e.g. “SA 5” or “Loeb”"}
             aria-label="Search rooms"
             className="w-full rounded-2xl bg-surface py-3.5 pr-11 pl-12 text-base shadow-card outline-none placeholder:text-muted focus-visible:ring-2 focus-visible:ring-brand [&::-webkit-search-cancel-button]:hidden"
@@ -214,7 +220,7 @@ export function Finder({
                 <button
                   type="button"
                   onClick={backToBuildings}
-                  className="mb-1 -ml-1 inline-flex items-center gap-1 rounded-full px-1 py-0.5 text-sm font-semibold text-muted hover:text-ink lg:hidden"
+                  className="-ml-2 inline-flex h-10 items-center gap-1 rounded-full px-2 text-sm font-semibold text-muted hover:text-ink lg:hidden"
                 >
                   <ArrowLeft className="h-4 w-4" /> All buildings
                 </button>
@@ -238,7 +244,7 @@ export function Finder({
                     type="button"
                     aria-pressed={state.view === v}
                     onClick={() => update({ view: v })}
-                    className={`rounded-full px-3 py-1.5 transition ${state.view === v ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}
+                    className={`h-9 rounded-full px-3 transition ${state.view === v ? "bg-ink text-bg" : "text-muted hover:text-ink"}`}
                   >
                     {v === "list" ? "Rooms" : "Schedule"}
                   </button>
