@@ -59,6 +59,8 @@ describe("time helpers", () => {
 
   it("formats a timestamp as Ottawa clock time", () => {
     expect(formatClock(Date.parse("2026-10-19T22:42:00Z"))).toBe("6:42 PM");
+    expect(formatClock(Date.parse("2026-10-19T22:42:00Z"), "2026-10-19")).toBe("6:42 PM");
+    expect(formatClock(Date.parse("2026-10-19T22:42:00Z"), "2026-10-20")).toBe("Mon, Oct 19, 6:42 PM");
   });
 
   it("formats minutes for humans", () => {

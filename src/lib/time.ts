@@ -63,10 +63,10 @@ export function formatDuration(minutes: number): string {
   return m ? `${h}h ${m}m` : `${h}h`;
 }
 
-/** Wall-clock time in Ottawa for a timestamp, e.g. "6:42 PM". */
-export function formatClock(ms: number): string {
-  const { minute } = ottawaNow(new Date(ms));
-  return formatTime(minute);
+/** Wall-clock time in Ottawa for a timestamp, e.g. "6:42 PM", with the date if it isn't `today`. */
+export function formatClock(ms: number, today?: string): string {
+  const { date, minute } = ottawaNow(new Date(ms));
+  return today && date !== today ? `${formatDate(date)}, ${formatTime(minute)}` : formatTime(minute);
 }
 
 export function formatDate(date: string): string {

@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowLeft, LayoutList, Search, X } from "lucide-react";
+import { ArrowLeft, CloudOff, LayoutList, Search, X } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo, useRef, useState, useTransition } from "react";
 import { useFavourites } from "@/hooks/use-favourites";
 import { useNowMinute } from "@/hooks/use-now";
+import type { Outage } from "@/lib/backup";
 import {
   countRooms,
   filterRooms,
@@ -33,11 +34,14 @@ export function Finder({
   today,
   serverMinute,
   fetchedAt,
+  outage,
 }: {
   rooms: DayRoom[];
   today: string;
   serverMinute: Minute;
   fetchedAt: number;
+  /** Set when Carleton is down and these are the last bookings saved before it went down. */
+  outage: Outage | null;
 }) {
   const router = useRouter();
   const params = useSearchParams();
@@ -151,6 +155,7 @@ export function Finder({
 
   return (
     <div className={`transition-opacity ${loadingDay ? "pointer-events-none opacity-50" : ""}`} aria-busy={loadingDay}>
+      {outage && <OutageNotice outage={outage} checkedAt={formatClock(fetchedAt, today)} />}
       <div className="space-y-3">
         <div className="relative">
           <Search
@@ -291,7 +296,7 @@ export function Finder({
         </main>
       </div>
 
-      <p className="mt-10 text-center text-xs text-muted">Bookings checked at {formatClock(fetchedAt)}</p>
+      <p className="mt-10 text-center text-xs text-muted">Bookings checked at {formatClock(fetchedAt, today)}</p>
 
       <Sheet open={filtersOpen} label="Filters" onClose={() => setFiltersOpen(false)}>
         <FiltersSheet
@@ -313,6 +318,22 @@ export function Finder({
           />
         )}
       </Sheet>
+    </div>
+  );
+}
+
+function OutageNotice({ outage, checkedAt }: { outage: Outage; checkedAt: string }) {
+  return (
+    <div role="status" className="mb-4 flex items-start gap-3 rounded-2xl bg-short-soft px-4 py-3 text-sm text-ink">
+      <CloudOff className="mt-0.5 h-5 w-5 shrink-0 text-short" aria-hidden />
+      <p>
+        <b>
+          {outage === "maintenance"
+            ? "Carleton’s website is down for maintenance."
+            : "Carleton’s booking system isn’t responding."}
+        </b>{" "}
+        Showing the bookings we saw at {checkedAt}, so anything booked since then won’t show.
+      </p>
     </div>
   );
 }
