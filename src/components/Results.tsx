@@ -25,6 +25,7 @@ export async function Results({ searchParams }: { searchParams: PageProps<"/">["
       serverMinute={now.minute}
       fetchedAt={day.fetchedAt}
       outage={day.outage}
+      source={day.source}
     />
   );
 }
@@ -37,10 +38,10 @@ function Unavailable({ outage }: { outage: Outage }) {
       </span>
       {outage === "maintenance" ? (
         <>
-          <h2 className="mt-4 text-xl font-bold">Carleton&apos;s website is down for maintenance</h2>
+          <h2 className="mt-4 text-xl font-bold">Carleton&apos;s booking system is down for maintenance</h2>
           <p className="mt-2 text-sm text-muted">
             Room schedules come from booking.carleton.ca, which is showing a maintenance page right now. Rooms will be
-            back here as soon as Carleton&apos;s site is.
+            back here as soon as it is.
           </p>
         </>
       ) : (

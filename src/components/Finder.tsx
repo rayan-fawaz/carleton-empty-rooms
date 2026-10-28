@@ -6,6 +6,7 @@ import { useMemo, useRef, useState, useTransition } from "react";
 import { useFavourites } from "@/hooks/use-favourites";
 import { useNowMinute } from "@/hooks/use-now";
 import type { Outage } from "@/lib/backup";
+import type { Source } from "@/lib/data";
 import {
   countRooms,
   filterRooms,
@@ -35,6 +36,7 @@ export function Finder({
   serverMinute,
   fetchedAt,
   outage,
+  source,
 }: {
   rooms: DayRoom[];
   today: string;
@@ -42,6 +44,8 @@ export function Finder({
   fetchedAt: number;
   /** Set when Carleton is down and these are the last bookings saved before it went down. */
   outage: Outage | null;
+  /** "classes" when the booking site is down and these are class times from the public timetable. */
+  source: Source;
 }) {
   const router = useRouter();
   const params = useSearchParams();
@@ -155,7 +159,7 @@ export function Finder({
 
   return (
     <div className={`transition-opacity ${loadingDay ? "pointer-events-none opacity-50" : ""}`} aria-busy={loadingDay}>
-      {outage && <OutageNotice outage={outage} checkedAt={formatClock(fetchedAt, today)} />}
+      {outage && <OutageNotice outage={outage} source={source} checkedAt={formatClock(fetchedAt, today)} />}
       <div className="space-y-3">
         <div className="relative">
           <Search
@@ -296,7 +300,9 @@ export function Finder({
         </main>
       </div>
 
-      <p className="mt-10 text-center text-xs text-muted">Bookings checked at {formatClock(fetchedAt, today)}</p>
+      <p className="mt-10 text-center text-xs text-muted">
+        {source === "classes" ? "Class timetable" : "Bookings"} checked at {formatClock(fetchedAt, today)}
+      </p>
 
       <Sheet open={filtersOpen} label="Filters" onClose={() => setFiltersOpen(false)}>
         <FiltersSheet
@@ -322,17 +328,19 @@ export function Finder({
   );
 }
 
-function OutageNotice({ outage, checkedAt }: { outage: Outage; checkedAt: string }) {
+function OutageNotice({ outage, source, checkedAt }: { outage: Outage; source: Source; checkedAt: string }) {
   return (
     <div role="status" className="mb-4 flex items-start gap-3 rounded-2xl bg-short-soft px-4 py-3 text-sm text-ink">
       <CloudOff className="mt-0.5 h-5 w-5 shrink-0 text-short" aria-hidden />
       <p>
         <b>
           {outage === "maintenance"
-            ? "Carleton’s website is down for maintenance."
+            ? "Carleton’s booking system is down for maintenance."
             : "Carleton’s booking system isn’t responding."}
         </b>{" "}
-        Showing the bookings we saw at {checkedAt}, so anything booked since then won’t show.
+        {source === "classes"
+          ? "Showing class times from the public timetable instead. Exams, events and other bookings aren’t included, so a free room might still be in use."
+          : `Showing the bookings we saw at ${checkedAt}, so anything booked since then won’t show.`}
       </p>
     </div>
   );

@@ -1,0 +1,1188 @@
+{
+  "takenAt": "2026-10-19",
+  "rooms": [
+    {
+      "id": "00b8abb2-9f1e-4093-8896-adccbf3532dd",
+      "name": "AP 132",
+      "building": "AP"
+    },
+    {
+      "id": "8abc95a7-6df8-439e-bf6c-4c884d67c10f",
+      "name": "AP 134",
+      "building": "AP"
+    },
+    {
+      "id": "46080f26-a021-40fb-addf-92c3e9b743b9",
+      "name": "AP 230N1",
+      "building": "AP"
+    },
+    {
+      "id": "590ba377-4cdd-4f26-8961-14a55710d7f1",
+      "name": "AP 236",
+      "building": "AP"
+    },
+    {
+      "id": "9b7c3442-0726-42cc-8f2a-ebb349eaea15",
+      "name": "AP 238",
+      "building": "AP"
+    },
+    {
+      "id": "3f200c52-a299-46e6-9ddd-647cb1e111ea",
+      "name": "AT 101",
+      "building": "AT"
+    },
+    {
+      "id": "9477ef60-a012-479c-9874-4c60577742ba",
+      "name": "AT 102",
+      "building": "AT"
+    },
+    {
+      "id": "034d975d-fcc6-49a7-b2fa-0d05945d3d39",
+      "name": "AT 301",
+      "building": "AT"
+    },
+    {
+      "id": "ebe03d4e-c95f-4611-8931-916c1c4da52a",
+      "name": "AT 302",
+      "building": "AT"
+    },
+    {
+      "id": "9d982fc8-384a-4f48-bb60-6a8a9027f9c8",
+      "name": "CB 2103",
+      "building": "CB"
+    },
+    {
+      "id": "9ed075fa-7dd6-4e54-8290-67441177d08f",
+      "name": "CB 2104",
+      "building": "CB"
+    },
+    {
+      "id": "30de3eb6-1540-4a17-9dd5-1427e04c0566",
+      "name": "CB 2202",
+      "building": "CB"
+    },
+    {
+      "id": "e0181e94-94d3-4e10-9259-53bc4cc0da51",
+      "name": "CB 2302",
+      "building": "CB"
+    },
+    {
+      "id": "3955fea7-570b-41ba-acae-30fa09490016",
+      "name": "CB 2400",
+      "building": "CB"
+    },
+    {
+      "id": "c0bcbac1-15c5-484e-a8c6-fa9a576d1f71",
+      "name": "CB 3101",
+      "building": "CB"
+    },
+    {
+      "id": "2b969541-258d-48be-aef0-d1a1f6f29fcc",
+      "name": "CB 3102",
+      "building": "CB"
+    },
+    {
+      "id": "41064c93-b235-4a14-ac4d-024842f0f2e6",
+      "name": "CB 3201",
+      "building": "CB"
+    },
+    {
+      "id": "42a0aed9-acf5-423c-895a-62bc57105a5d",
+      "name": "CB 3208",
+      "building": "CB"
+    },
+    {
+      "id": "f2d49883-0e13-457a-9e14-91861c028c48",
+      "name": "CB 3400",
+      "building": "CB"
+    },
+    {
+      "id": "97d2f573-50c8-408f-93fa-b43b4594949d",
+      "name": "CB 4105",
+      "building": "CB"
+    },
+    {
+      "id": "34d49a51-27c7-4ac7-892a-0badbd442ceb",
+      "name": "CB 4111",
+      "building": "CB"
+    },
+    {
+      "id": "01a7551e-0b1a-4e9a-b8dc-ed227dd1869f",
+      "name": "CB 6112",
+      "building": "CB"
+    },
+    {
+      "id": "d1842d79-d143-4e00-8411-f75d2c9a1c78",
+      "name": "DT 1808",
+      "building": "DT"
+    },
+    {
+      "id": "cc2d5068-d384-4cbf-96a4-6c25657cf1ec",
+      "name": "DT 1811",
+      "building": "DT"
+    },
+    {
+      "id": "215e4782-b45f-45da-999e-f7020b5d9658",
+      "name": "DT 1816",
+      "building": "DT"
+    },
+    {
+      "id": "dec3e916-67e9-450c-9a30-1d2aeaed8f52",
+      "name": "DT 2017",
+      "building": "DT"
+    },
+    {
+      "id": "f65241b1-ffa0-497e-975c-07dc82ea4183",
+      "name": "DT 922",
+      "building": "DT"
+    },
+    {
+      "id": "067de8fa-83d1-4410-ab35-fe4cc32c35ac",
+      "name": "FR FRONTENAC MPR",
+      "building": "FR"
+    },
+    {
+      "id": "1d9266dc-c548-4704-9538-a6756822f5a9",
+      "name": "HP 3393",
+      "building": "HP"
+    },
+    {
+      "id": "9e3f4176-dbd3-4206-a6fd-b59e53d03721",
+      "name": "HP 4115",
+      "building": "HP"
+    },
+    {
+      "id": "a20f38aa-3b98-46a4-be0d-351da7e97a8a",
+      "name": "HP 4125",
+      "building": "HP"
+    },
+    {
+      "id": "5925797f-7dac-4a6c-bf81-e21a681ac936",
+      "name": "HP 4155",
+      "building": "HP"
+    },
+    {
+      "id": "b3cf2748-2f46-4433-a0ac-f1969f846d0d",
+      "name": "HP 4325",
+      "building": "HP"
+    },
+    {
+      "id": "7cc15c4a-0926-433b-a67a-7cb2f9e84e0e",
+      "name": "HP 4351",
+      "building": "HP"
+    },
+    {
+      "id": "87efbcda-d5b4-4fde-8a61-8d1b5801c441",
+      "name": "HP 4369",
+      "building": "HP"
+    },
+    {
+      "id": "32c6e355-26a7-4f1f-8e47-0f30e729ef14",
+      "name": "HP 4385",
+      "building": "HP"
+    },
+    {
+      "id": "5c040d87-d637-44a2-a314-a585a3b0f2e8",
+      "name": "HS 1301",
+      "building": "HS"
+    },
+    {
+      "id": "ebde71a6-1880-4882-92ec-f572e5e46b27",
+      "name": "LA A204",
+      "building": "LA"
+    },
+    {
+      "id": "d7ff8dcb-b452-4f11-a8e9-a456a2a62db5",
+      "name": "LA A602",
+      "building": "LA"
+    },
+    {
+      "id": "3d5f7e54-71ca-40ad-bcdc-6a86da7fa1c7",
+      "name": "LA A700",
+      "building": "LA"
+    },
+    {
+      "id": "09e56d62-c73b-4e90-a073-5fef711363ce",
+      "name": "LA A715",
+      "building": "LA"
+    },
+    {
+      "id": "f6a7ba9a-aa52-41fc-8537-2a318ca716f1",
+      "name": "LA A720",
+      "building": "LA"
+    },
+    {
+      "id": "431c10bf-5de6-4ced-8ede-1283196a0eac",
+      "name": "LA B146",
+      "building": "LA"
+    },
+    {
+      "id": "2e8021b4-8e42-4b16-b3d8-0e93091da874",
+      "name": "LA B241",
+      "building": "LA"
+    },
+    {
+      "id": "8a3e720c-55ee-40ce-a3fa-d3a0880184ee",
+      "name": "LA B243",
+      "building": "LA"
+    },
+    {
+      "id": "7b0b3859-b356-4d9a-ae88-01b7e551cc3f",
+      "name": "LA B249",
+      "building": "LA"
+    },
+    {
+      "id": "7558e0ec-01fe-4d9c-922e-7034037746df",
+      "name": "LA B250",
+      "building": "LA"
+    },
+    {
+      "id": "a10231d9-5d4f-4c1e-a67b-a9bdf24c7236",
+      "name": "LA C164",
+      "building": "LA"
+    },
+    {
+      "id": "04d5ebd5-8ff7-483a-b55d-3045eb259650",
+      "name": "LA C264",
+      "building": "LA"
+    },
+    {
+      "id": "58a44fff-5d83-48ad-bc42-aa7eefcc6db8",
+      "name": "LA C862",
+      "building": "LA"
+    },
+    {
+      "id": "ad8248a5-52b9-419c-b434-0acf6de55b1d",
+      "name": "LA C869",
+      "building": "LA"
+    },
+    {
+      "id": "00b81375-01f4-4ecd-ac63-8730b7267d40",
+      "name": "LE 118",
+      "building": "LE"
+    },
+    {
+      "id": "13b47199-186f-4773-97ac-32cb9a43a3b5",
+      "name": "LE LEEDS MPR 124",
+      "building": "LE"
+    },
+    {
+      "id": "aa4bdbff-9f4c-419b-b904-d0771976d075",
+      "name": "LH LANARK MPR OPEN LOUNGE",
+      "building": "LH"
+    },
+    {
+      "id": "3f3d1643-9893-415e-a4e5-98475fbf456a",
+      "name": "MC 2000",
+      "building": "MC"
+    },
+    {
+      "id": "33164ecd-6e37-42ae-ab19-f213dfcd3865",
+      "name": "MC 2014",
+      "building": "MC"
+    },
+    {
+      "id": "a5bcaea9-a76b-4f4a-8a48-9f091ca3f10f",
+      "name": "MC 5050",
+      "building": "MC"
+    },
+    {
+      "id": "2cf0617e-e674-4773-9c66-aaf7fb889e5e",
+      "name": "ME 3131",
+      "building": "ME"
+    },
+    {
+      "id": "0e147544-250e-4481-bba1-c26b854c243d",
+      "name": "ME 3165",
+      "building": "ME"
+    },
+    {
+      "id": "ed823bfb-3f57-4245-a4b1-08c0b326f135",
+      "name": "ME 3174",
+      "building": "ME"
+    },
+    {
+      "id": "7fac3a5a-aea9-4a92-abd3-1ccba4697cf8",
+      "name": "ME 3190",
+      "building": "ME"
+    },
+    {
+      "id": "bc34694b-5595-445b-9b19-22f8b3065c91",
+      "name": "ME 3235",
+      "building": "ME"
+    },
+    {
+      "id": "059c4b25-b8c7-4876-aad7-be025746d068",
+      "name": "ME 3269",
+      "building": "ME"
+    },
+    {
+      "id": "c41e8450-96c2-418e-8e82-c4b25917bdc7",
+      "name": "ME 3275",
+      "building": "ME"
+    },
+    {
+      "id": "44cfed73-6c79-42f0-9e28-b221528d5c29",
+      "name": "ME 3328",
+      "building": "ME"
+    },
+    {
+      "id": "c2426907-5777-4f27-92f4-8ed79b8fe7e2",
+      "name": "ME 3356",
+      "building": "ME"
+    },
+    {
+      "id": "1f580fa8-7bfc-4ee1-98a3-f9b1f7539afc",
+      "name": "ME 3380",
+      "building": "ME"
+    },
+    {
+      "id": "b356d21e-033c-43b2-9ec1-501c5c219c4f",
+      "name": "ME 4124",
+      "building": "ME"
+    },
+    {
+      "id": "7aef9657-b781-4e0f-889b-ba54744db120",
+      "name": "ME 4236",
+      "building": "ME"
+    },
+    {
+      "id": "e9ea3dd7-50c2-4fe1-87fb-32ef04e70de4",
+      "name": "ME 4332",
+      "building": "ME"
+    },
+    {
+      "id": "12082e76-1f2e-4b15-8ce4-33a74b36c9c9",
+      "name": "ME 4342",
+      "building": "ME"
+    },
+    {
+      "id": "6bd5535b-c620-4175-a1d4-d8abf3068a6d",
+      "name": "ME 4346",
+      "building": "ME"
+    },
+    {
+      "id": "45f7c751-7fbf-4c9d-a39d-3085833050f1",
+      "name": "ME 4359",
+      "building": "ME"
+    },
+    {
+      "id": "f4909813-3c5e-4083-acc6-d900f47b130e",
+      "name": "ME 4494",
+      "building": "ME"
+    },
+    {
+      "id": "9452f19a-d6de-4e24-a1a6-5d54e1afe505",
+      "name": "ME 4499",
+      "building": "ME"
+    },
+    {
+      "id": "a851b045-4131-4464-bfc4-e224ed5130a3",
+      "name": "ME 5129",
+      "building": "ME"
+    },
+    {
+      "id": "a728ad2e-e76b-4d7f-aed2-b8c693c03c9f",
+      "name": "ML 153",
+      "building": "ML"
+    },
+    {
+      "id": "d18b3e52-0d59-4059-84f3-54c766655f8c",
+      "name": "NI 1020",
+      "building": "NI"
+    },
+    {
+      "id": "92b27ef3-ac0b-4606-b396-05268341e8f7",
+      "name": "NI 1030",
+      "building": "NI"
+    },
+    {
+      "id": "82a73e95-eac1-47e5-b4c1-c84dd5884502",
+      "name": "NI 2001",
+      "building": "NI"
+    },
+    {
+      "id": "601d282b-784f-413d-b230-988fac83e7cb",
+      "name": "NI 3020",
+      "building": "NI"
+    },
+    {
+      "id": "7a120fd8-7887-4f99-9dbc-97e400261607",
+      "name": "NI 3022",
+      "building": "NI"
+    },
+    {
+      "id": "6bfe21a0-a220-47e2-8cda-3a43938177a1",
+      "name": "NI 3030",
+      "building": "NI"
+    },
+    {
+      "id": "44da77b6-3cbd-4804-8a67-4253c29bcc78",
+      "name": "NI 3032",
+      "building": "NI"
+    },
+    {
+      "id": "3a2fdc92-1103-4131-ba14-7d554f89fb56",
+      "name": "NI 3034",
+      "building": "NI"
+    },
+    {
+      "id": "d72f8014-d288-4946-abc8-09813d78a6f3",
+      "name": "NI 3036",
+      "building": "NI"
+    },
+    {
+      "id": "b6bd5c01-c3a1-48aa-834c-222bfc20b434",
+      "name": "NI 3038",
+      "building": "NI"
+    },
+    {
+      "id": "3ee08a6c-bb01-4f45-a8a6-80520074ecdd",
+      "name": "NI 3040",
+      "building": "NI"
+    },
+    {
+      "id": "939ea3af-d8c9-4347-be03-7b3f98dde660",
+      "name": "NI 3042",
+      "building": "NI"
+    },
+    {
+      "id": "9d67b9bd-8ed1-49ec-8500-d49e796ae09b",
+      "name": "NI 4010",
+      "building": "NI"
+    },
+    {
+      "id": "0facd8e2-adc2-43e6-b970-e2e8f86f5129",
+      "name": "NI 4020",
+      "building": "NI"
+    },
+    {
+      "id": "79c04a65-f0b1-42d7-aad7-c0adf525ea95",
+      "name": "NI 4030",
+      "building": "NI"
+    },
+    {
+      "id": "c7fcf832-7cb4-4247-9c90-deae01248603",
+      "name": "NI 4032",
+      "building": "NI"
+    },
+    {
+      "id": "3f69f775-293e-4272-bd7f-95256eca1b78",
+      "name": "NI 4034",
+      "building": "NI"
+    },
+    {
+      "id": "b1e4b0e3-584a-4c48-a85c-c88ffbeff919",
+      "name": "NI 4036",
+      "building": "NI"
+    },
+    {
+      "id": "923755b7-e472-4e02-9356-4305e84b564a",
+      "name": "NI 4038",
+      "building": "NI"
+    },
+    {
+      "id": "02d7902f-5892-46bf-8c63-3c249c474723",
+      "name": "NI 4040",
+      "building": "NI"
+    },
+    {
+      "id": "b1e6e185-20d4-4187-82e1-907e937a611e",
+      "name": "NI 4042",
+      "building": "NI"
+    },
+    {
+      "id": "fd0e087e-be76-4642-a1eb-a447eedd64fc",
+      "name": "NI 4050",
+      "building": "NI"
+    },
+    {
+      "id": "f82ca75b-0d11-4f7f-9277-bf3ce1d40abb",
+      "name": "NI 5010",
+      "building": "NI"
+    },
+    {
+      "id": "e0d9cb9d-0430-4b49-89c1-3a0215129fe4",
+      "name": "NN 180",
+      "building": "NN"
+    },
+    {
+      "id": "1223f79d-3e13-4952-aaf5-71b7d20e1c38",
+      "name": "NN 182",
+      "building": "NN"
+    },
+    {
+      "id": "eca60cfd-520c-4bcd-b5e4-7a30430dc52a",
+      "name": "NN 231",
+      "building": "NN"
+    },
+    {
+      "id": "19a4cf5e-6991-4a7c-8a39-5bff5727a5db",
+      "name": "NN 279",
+      "building": "NN"
+    },
+    {
+      "id": "8b54f8c6-0759-43ae-b6e8-dea8b7c4f754",
+      "name": "NN 280",
+      "building": "NN"
+    },
+    {
+      "id": "40aad694-ec45-4154-855e-e43d6366968b",
+      "name": "NN 282",
+      "building": "NN"
+    },
+    {
+      "id": "1f302a0a-3348-4593-9664-108a41079467",
+      "name": "NN 374",
+      "building": "NN"
+    },
+    {
+      "id": "316fd2e9-1b61-4cb3-b430-5e66210a8388",
+      "name": "NN 376",
+      "building": "NN"
+    },
+    {
+      "id": "99498339-1bcf-42a6-a232-459e4a67777b",
+      "name": "NN 378",
+      "building": "NN"
+    },
+    {
+      "id": "cec6ca83-f200-4147-b74c-5068b9670103",
+      "name": "NN GALLERIA",
+      "building": "NN"
+    },
+    {
+      "id": "589b3f30-1489-4711-8766-b78f6e36d823",
+      "name": "NN GALLERIA LOUNGE",
+      "building": "NN"
+    },
+    {
+      "id": "5bfd7ddc-7411-46c5-90dd-2b58b9f0c149",
+      "name": "PA 100A",
+      "building": "PA"
+    },
+    {
+      "id": "3d1eddf6-1d34-499b-a5cb-2f61906ab3d6",
+      "name": "PA 101",
+      "building": "PA"
+    },
+    {
+      "id": "14dc29c7-e969-41f7-9072-7d3f860318f6",
+      "name": "PA 111",
+      "building": "PA"
+    },
+    {
+      "id": "fe73ec06-385b-4eb5-aebb-2bf41f01ca6f",
+      "name": "PA 112",
+      "building": "PA"
+    },
+    {
+      "id": "158edf94-86b1-4163-a827-099d5156d062",
+      "name": "PA 114",
+      "building": "PA"
+    },
+    {
+      "id": "adb75c1a-62a4-4a58-9f32-71685ef332cd",
+      "name": "PA 115",
+      "building": "PA"
+    },
+    {
+      "id": "34ed96c2-45ed-4087-9520-cd1cc2ebcc85",
+      "name": "PA 118",
+      "building": "PA"
+    },
+    {
+      "id": "2f743e2e-267d-4eb6-8ac0-ff3b773c8ab6",
+      "name": "PA 129",
+      "building": "PA"
+    },
+    {
+      "id": "537e9877-e9ba-49a7-bb27-895e4aa354f6",
+      "name": "PA 133",
+      "building": "PA"
+    },
+    {
+      "id": "218ac93d-fca6-43ce-9e12-9d349f61ea1c",
+      "name": "PA 201",
+      "building": "PA"
+    },
+    {
+      "id": "d7c38939-68ab-4429-abcf-9db1c1abe3fa",
+      "name": "PA 215",
+      "building": "PA"
+    },
+    {
+      "id": "24a19876-09bf-4d55-b8d8-f2dd61eb4f71",
+      "name": "PA 218",
+      "building": "PA"
+    },
+    {
+      "id": "8e01f3d7-bccb-4927-bf16-cc724d4be4d6",
+      "name": "PA 234",
+      "building": "PA"
+    },
+    {
+      "id": "da4a1663-b48e-4208-9dc6-2595ec584042",
+      "name": "PA 240",
+      "building": "PA"
+    },
+    {
+      "id": "9c8443ca-1645-49ff-bd98-bc7fc5066a52",
+      "name": "PA 303",
+      "building": "PA"
+    },
+    {
+      "id": "6ada1c2b-2dc2-401d-a0e4-df0597b7dfce",
+      "name": "PA 3A36",
+      "building": "PA"
+    },
+    {
+      "id": "f20ad7ff-feb2-4716-8d56-abf0bf2c6d30",
+      "name": "PH PRESCOTT MPR",
+      "building": "PH"
+    },
+    {
+      "id": "02a20caf-a967-4557-bc40-a6433e4e040e",
+      "name": "PK 608",
+      "building": "PK"
+    },
+    {
+      "id": "f8c99a2e-c4aa-403c-902e-ff8f7ed28b98",
+      "name": "RB 1200",
+      "building": "RB"
+    },
+    {
+      "id": "e9f5efd7-bd39-4c8c-887e-c118b88e391a",
+      "name": "RB 1201",
+      "building": "RB"
+    },
+    {
+      "id": "d9400bb8-c867-4669-a0ec-bb16fd707e8d",
+      "name": "RB 2200",
+      "building": "RB"
+    },
+    {
+      "id": "ee481428-e797-489c-8dfa-5fa299bd0c0f",
+      "name": "RB 2211",
+      "building": "RB"
+    },
+    {
+      "id": "ef467517-5e9b-4eee-bf49-13bca0ac1f28",
+      "name": "RB 2220",
+      "building": "RB"
+    },
+    {
+      "id": "33923ee2-c69b-40c3-99c4-a2b133c08003",
+      "name": "RB 2224",
+      "building": "RB"
+    },
+    {
+      "id": "13011f5f-199a-4860-ad34-1e6e0e97d30c",
+      "name": "RB 2228",
+      "building": "RB"
+    },
+    {
+      "id": "77236103-4a34-462d-83fe-b0c47c9283e4",
+      "name": "RB 2308",
+      "building": "RB"
+    },
+    {
+      "id": "ba48ce45-bdc4-4dfd-ac17-fb45a7f077f8",
+      "name": "RB 2311",
+      "building": "RB"
+    },
+    {
+      "id": "b24f25cd-c0e7-46cf-92ea-9a3a0dbd1b07",
+      "name": "RB 2926",
+      "building": "RB"
+    },
+    {
+      "id": "b9029be4-7dd2-423c-a599-09d8daa4bc2b",
+      "name": "RB 3110",
+      "building": "RB"
+    },
+    {
+      "id": "e3753c95-ffa6-4ffd-bd46-35470d076ba0",
+      "name": "RB 3112",
+      "building": "RB"
+    },
+    {
+      "id": "9b7c9012-817c-48fa-8a7b-9eacebfdb795",
+      "name": "RB 3201",
+      "building": "RB"
+    },
+    {
+      "id": "ea0f9e00-b9a9-4105-80b2-611a091669eb",
+      "name": "RB 3202",
+      "building": "RB"
+    },
+    {
+      "id": "162285e7-4b58-492e-93bd-17ccc02c7674",
+      "name": "RB 3220",
+      "building": "RB"
+    },
+    {
+      "id": "c8ad5ea1-da82-4c2f-a7ec-38bc64e269f3",
+      "name": "RB 3224",
+      "building": "RB"
+    },
+    {
+      "id": "c06953c4-6eb5-4684-b23e-ba2271955c76",
+      "name": "RB 3228",
+      "building": "RB"
+    },
+    {
+      "id": "41cd46a3-547f-4059-8f2c-b52ca2e56aca",
+      "name": "RB 3302",
+      "building": "RB"
+    },
+    {
+      "id": "145afcb9-f95c-45f5-9c47-96d53274ed5e",
+      "name": "RB 3320",
+      "building": "RB"
+    },
+    {
+      "id": "fd2be20e-bee0-4017-9dde-8793bc58a97e",
+      "name": "RB 4111",
+      "building": "RB"
+    },
+    {
+      "id": "7f334e98-d3f0-4463-9d48-015dfb422584",
+      "name": "RB 4205",
+      "building": "RB"
+    },
+    {
+      "id": "4d6137b3-19e2-4898-812f-ce30d0f38f18",
+      "name": "RB 4208",
+      "building": "RB"
+    },
+    {
+      "id": "76599a51-c4cb-4816-af2a-1717fc3c28bd",
+      "name": "RB 4308",
+      "building": "RB"
+    },
+    {
+      "id": "2ecbbe37-7564-4297-974f-4f2db8a52b25",
+      "name": "RB 5208",
+      "building": "RB"
+    },
+    {
+      "id": "fcb33640-4fb4-4f0e-a959-c32691cbcc36",
+      "name": "RU RUSSELL TRIPLE MPR",
+      "building": "RU"
+    },
+    {
+      "id": "ea2ba774-fc29-4b85-bef4-5dcc449b8d46",
+      "name": "SA 303",
+      "building": "SA"
+    },
+    {
+      "id": "77cfa23a-cdb3-4a84-a2ee-29227cf70cae",
+      "name": "SA 304",
+      "building": "SA"
+    },
+    {
+      "id": "1726d25d-79dc-4f9a-9009-0c36e05c001e",
+      "name": "SA 306",
+      "building": "SA"
+    },
+    {
+      "id": "af053ead-9100-414d-b303-c0990cf77ade",
+      "name": "SA 308",
+      "building": "SA"
+    },
+    {
+      "id": "ed4a40c3-ec46-48f4-9530-f855d68f85ef",
+      "name": "SA 309",
+      "building": "SA"
+    },
+    {
+      "id": "741ff92d-4e06-4d27-b490-d8c217a3e791",
+      "name": "SA 311",
+      "building": "SA"
+    },
+    {
+      "id": "95a073d8-ea1a-4c3b-b441-540455ddd2f3",
+      "name": "SA 313",
+      "building": "SA"
+    },
+    {
+      "id": "c238200d-e25a-4948-81ff-a5ce4878afe8",
+      "name": "SA 314",
+      "building": "SA"
+    },
+    {
+      "id": "20e05cdc-e3d6-447b-972d-408091a7f40c",
+      "name": "SA 315",
+      "building": "SA"
+    },
+    {
+      "id": "6e0be991-d141-4687-a9f4-702f1676db3f",
+      "name": "SA 316",
+      "building": "SA"
+    },
+    {
+      "id": "01656ca2-0903-4b6d-93d6-c09a1a4984d7",
+      "name": "SA 317",
+      "building": "SA"
+    },
+    {
+      "id": "f7182ff1-f1ef-4099-b74a-918d869722de",
+      "name": "SA 318",
+      "building": "SA"
+    },
+    {
+      "id": "0a37a4ed-9416-41c7-b38b-696f2cea22ce",
+      "name": "SA 402",
+      "building": "SA"
+    },
+    {
+      "id": "17d90a41-6fee-49d8-9691-3e8b839ef536",
+      "name": "SA 403",
+      "building": "SA"
+    },
+    {
+      "id": "3e39ab56-f7a7-4786-b647-d419435d9ac3",
+      "name": "SA 404",
+      "building": "SA"
+    },
+    {
+      "id": "3b0c1826-3e05-48b9-b5dc-3308903de17d",
+      "name": "SA 406",
+      "building": "SA"
+    },
+    {
+      "id": "b091e2e1-dd95-4421-b865-06f4f55907ab",
+      "name": "SA 408",
+      "building": "SA"
+    },
+    {
+      "id": "d131f5e9-9eec-43fa-a6d3-de2ace60aef2",
+      "name": "SA 409",
+      "building": "SA"
+    },
+    {
+      "id": "e2b7b945-8191-4763-b7b2-73ac5390ce14",
+      "name": "SA 411",
+      "building": "SA"
+    },
+    {
+      "id": "96dbf02d-0a50-4aae-8263-ef2285fbb8cf",
+      "name": "SA 413",
+      "building": "SA"
+    },
+    {
+      "id": "9b18cd90-611c-4261-9d47-38f48560e1f6",
+      "name": "SA 415",
+      "building": "SA"
+    },
+    {
+      "id": "417144a6-9be6-4419-8662-636104322836",
+      "name": "SA 416",
+      "building": "SA"
+    },
+    {
+      "id": "2b8c24a5-a852-49f5-aff0-c6109e390d82",
+      "name": "SA 417",
+      "building": "SA"
+    },
+    {
+      "id": "2d82feba-46ab-4631-bf8b-ebf2cc1bdfd8",
+      "name": "SA 501",
+      "building": "SA"
+    },
+    {
+      "id": "7cde6586-f686-438b-a035-d1cea9cc1622",
+      "name": "SA 502",
+      "building": "SA"
+    },
+    {
+      "id": "8d5379a7-1830-4f1c-8749-901be983809a",
+      "name": "SA 505",
+      "building": "SA"
+    },
+    {
+      "id": "2ca4d68d-8224-4ef8-9a3f-1ece4220c96d",
+      "name": "SA 506",
+      "building": "SA"
+    },
+    {
+      "id": "14136fae-7733-4dd3-9f49-b59b978210db",
+      "name": "SA 507",
+      "building": "SA"
+    },
+    {
+      "id": "f377aed5-0e9f-4f46-9cb9-1a4ea977bdf2",
+      "name": "SA 509",
+      "building": "SA"
+    },
+    {
+      "id": "c5f7234a-f1d3-4f21-89bd-2673689dad61",
+      "name": "SA 513",
+      "building": "SA"
+    },
+    {
+      "id": "759b5ef3-0d8d-45c1-985f-6198e58a247e",
+      "name": "SA 515",
+      "building": "SA"
+    },
+    {
+      "id": "2d4d414c-0ac8-47e1-94f9-0253dc7f6d91",
+      "name": "SA 516",
+      "building": "SA"
+    },
+    {
+      "id": "18624dff-7b98-43f5-8872-7695b3c14bd0",
+      "name": "SA 517",
+      "building": "SA"
+    },
+    {
+      "id": "bfb489fa-ce93-43f4-86de-0f37e352a5f2",
+      "name": "SA 518",
+      "building": "SA"
+    },
+    {
+      "id": "5f35fa98-4c5a-44b0-90c0-f4135837b12c",
+      "name": "SA 520",
+      "building": "SA"
+    },
+    {
+      "id": "c7abe81a-09b1-4ce1-bf22-1e8c5fdc9190",
+      "name": "SA 624",
+      "building": "SA"
+    },
+    {
+      "id": "c4083061-5ec9-4075-8698-612b90311e51",
+      "name": "SA KM-TH",
+      "building": "SA"
+    },
+    {
+      "id": "a3b87090-1197-45ac-a0f8-55686b19fe10",
+      "name": "SA THB",
+      "building": "SA"
+    },
+    {
+      "id": "cb0fcc23-a2fa-4790-a905-318a0896c767",
+      "name": "SC 103",
+      "building": "SC"
+    },
+    {
+      "id": "7f526479-2bd8-493c-8f9a-e78ea876e878",
+      "name": "SC 209",
+      "building": "SC"
+    },
+    {
+      "id": "439e4960-e79f-431d-b0cb-ce96f3254d76",
+      "name": "SD STORMONT MPR",
+      "building": "SD"
+    },
+    {
+      "id": "d8073a7a-c6a2-4e23-b69e-a47f22c1dd8a",
+      "name": "SP 100",
+      "building": "SP"
+    },
+    {
+      "id": "9f1019d1-ce97-45e7-9b65-3dccceb8c4ca",
+      "name": "SP 303",
+      "building": "SP"
+    },
+    {
+      "id": "1c3abd82-268d-4ec3-b777-26c34b9e1b40",
+      "name": "SP 400",
+      "building": "SP"
+    },
+    {
+      "id": "90fdfca7-1566-416c-a78e-fccfe7e4c69d",
+      "name": "SP 412",
+      "building": "SP"
+    },
+    {
+      "id": "ae383322-fec2-4d76-8eea-3f96477fe3b3",
+      "name": "SP 415",
+      "building": "SP"
+    },
+    {
+      "id": "1411bf9a-2656-4ddc-aac7-27126d0c6354",
+      "name": "SP 417",
+      "building": "SP"
+    },
+    {
+      "id": "2e297871-5103-4bf8-a265-aa6cc7d52141",
+      "name": "SP 435",
+      "building": "SP"
+    },
+    {
+      "id": "b2c5ca06-121e-453c-b47d-3519db64d502",
+      "name": "SP 472",
+      "building": "SP"
+    },
+    {
+      "id": "d803ec8a-9b99-4602-9964-267cbba3dd23",
+      "name": "TB 202",
+      "building": "TB"
+    },
+    {
+      "id": "ef4651bf-bcf7-48da-a1ca-89b8126819cf",
+      "name": "TB 204",
+      "building": "TB"
+    },
+    {
+      "id": "0a0404d2-ae3a-4d1b-b366-1ca2605458b0",
+      "name": "TB 208",
+      "building": "TB"
+    },
+    {
+      "id": "882d737a-b968-4e07-8397-850d318580a0",
+      "name": "TB 210",
+      "building": "TB"
+    },
+    {
+      "id": "041cae4d-51f0-4570-b2b3-c1a83b0a4037",
+      "name": "TB 213",
+      "building": "TB"
+    },
+    {
+      "id": "559207ca-002d-400c-bea6-2b2d80d66bc8",
+      "name": "TB 215",
+      "building": "TB"
+    },
+    {
+      "id": "c32cb4d1-512f-4b4d-b0ee-0f444aeee2bb",
+      "name": "TB 217",
+      "building": "TB"
+    },
+    {
+      "id": "d2869ad9-da8f-4343-a25e-4e8c1258f837",
+      "name": "TB 219",
+      "building": "TB"
+    },
+    {
+      "id": "f6fca06d-5540-42da-ae81-8e2044ce6072",
+      "name": "TB 230",
+      "building": "TB"
+    },
+    {
+      "id": "24fa119b-0e7d-42ac-aa98-1a934b0dbc40",
+      "name": "TB 236",
+      "building": "TB"
+    },
+    {
+      "id": "09b34ee0-0081-445b-92c0-7100b1a9df40",
+      "name": "TB 238",
+      "building": "TB"
+    },
+    {
+      "id": "5b905461-aacf-41d7-a404-090bb7e83642",
+      "name": "TB 240",
+      "building": "TB"
+    },
+    {
+      "id": "40339bc1-9c06-4543-b2af-1338c2e540b5",
+      "name": "TB 340",
+      "building": "TB"
+    },
+    {
+      "id": "967d723d-ccd4-4166-a4a7-d4a6c25a5733",
+      "name": "TB 342",
+      "building": "TB"
+    },
+    {
+      "id": "65aea172-40eb-4154-935e-f513337612f5",
+      "name": "TB 360",
+      "building": "TB"
+    },
+    {
+      "id": "1617e41a-e5cd-44fb-9fed-2ea765792825",
+      "name": "TB 431",
+      "building": "TB"
+    },
+    {
+      "id": "40bbc87d-60af-40a5-a1cf-b9967658a496",
+      "name": "TB 446",
+      "building": "TB"
+    },
+    {
+      "id": "b59fae8e-f338-44d2-8f77-281a24d4b497",
+      "name": "TB 447",
+      "building": "TB"
+    },
+    {
+      "id": "576521b4-c48f-4f0d-9ebd-54ef38518dc6",
+      "name": "TB 506",
+      "building": "TB"
+    },
+    {
+      "id": "21eb735a-95d2-4a46-9680-1a1df652b7cb",
+      "name": "TB Lobby",
+      "building": "TB"
+    },
+    {
+      "id": "11e2d95d-1c77-4779-98fb-90f7c7727136",
+      "name": "TC 208",
+      "building": "TC"
+    },
+    {
+      "id": "e6babb68-48b7-4716-b469-753ebf7356db",
+      "name": "TC 209",
+      "building": "TC"
+    },
+    {
+      "id": "7f0e33f0-dc21-4e9e-b715-97584b9c5e58",
+      "name": "TC 210",
+      "building": "TC"
+    },
+    {
+      "id": "7e355099-687b-4cdb-a1f6-d9e43a6dbab3",
+      "name": "TC 211",
+      "building": "TC"
+    },
+    {
+      "id": "b092dc05-f0a2-41d1-aa0d-b9db1bca0147",
+      "name": "TC 212",
+      "building": "TC"
+    },
+    {
+      "id": "67abc735-2abd-4943-8969-9b4164fa39d3",
+      "name": "TC 213",
+      "building": "TC"
+    },
+    {
+      "id": "f847cd00-9982-4494-bda9-b6327ab2dc32",
+      "name": "TC 214",
+      "building": "TC"
+    },
+    {
+      "id": "f3436cfb-836d-4ce5-967f-57b812c241b1",
+      "name": "TC FENN LOUNGE",
+      "building": "TC"
+    }
+  ],
+  "buildings": {
+    "AP": "Azrieli Pavilion",
+    "AT": "Azrieli Theatre",
+    "CB": "Canal Building",
+    "DT": "Dunton Tower",
+    "FR": "Frontenac House",
+    "HP": "Herzberg Laboratories",
+    "HS": "Health Sciences Building",
+    "LA": "Loeb Building",
+    "LE": "Leeds House",
+    "LH": "Lanark House",
+    "MC": "Minto Centre",
+    "ME": "Mackenzie Building",
+    "ML": "MacOdrum Library",
+    "NI": "Nicol Building",
+    "NN": "Nideyinàn (formerly University Centre)",
+    "PA": "Paterson Hall",
+    "PH": "Prescott House",
+    "PK": "Pigiarvik (formerly Robertson Hall)",
+    "RB": "Richcraft Hall",
+    "RU": "Russell House",
+    "SA": "Southam Hall",
+    "SC": "Steacie Building",
+    "SD": "Stormont Dundas House",
+    "SP": "St. Patrick's Building",
+    "TB": "Tory Building",
+    "TC": "Teraanga Commons (formerly Residence Commons)"
+  }
+}
